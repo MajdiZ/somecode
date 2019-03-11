@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Module file for ew_landing_pages.
+ */
+
+use Drupal\ew_landing_pages\Hooks\NodeInfoLandingPages;
+use Drupal\ew_landing_pages\Hooks\PreprocessLandingPages;
+use Drupal\ew_landing_pages\Hooks\ThemeRegistryAlterLandingPages;
+
+/**
+ * Implements hook_node_info().
+ */
+function ew_landing_pages_node_info() {
+  return NodeInfoLandingPages::getHookNodeInfo();
+}
+
+/**
+ * Implements hook_form().
+ */
+function ew_landing_pages_form($node, &$form_state) {
+  return node_content_form($node, $form_state);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ew_landing_pages_preprocess_entity(&$variables) {
+  PreprocessLandingPages::getHookPreprocessEntity($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ew_landing_pages_preprocess_page(&$variables) {
+  PreprocessLandingPages::getHookPreprocessPage($variables);
+}
+
+
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function ew_landing_pages_theme_registry_alter(&$theme_registry) {
+  ThemeRegistryAlterLandingPages::getHook($theme_registry);
+}

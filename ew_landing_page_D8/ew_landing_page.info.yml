@@ -1,0 +1,10 @@
+name: 'EW Landing Page'
+type: module
+description: 'EaglesWeb landing page'
+core: 8.x
+package: 'EaglesWeb'
+
+dependencies:
+  - ew_core
+  - paragraphs
+  - paragraphs_library

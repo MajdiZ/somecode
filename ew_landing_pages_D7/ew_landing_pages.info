@@ -1,0 +1,10 @@
+name = EaglesWeb® Landing pages (ew_landing_pages)
+description = Provide EaglesWeb management system a landing pages feature.
+package = EaglesWeb®
+core = 7.x
+version = 7.x-1.0
+dependencies[] = ew_core
+dependencies[] = ew_landing_pages_fe_paragraphs
+stylesheets[all][] = assets/css/style-paragraphs.css
+scripts[] = assets/js/landing-pages.js
+

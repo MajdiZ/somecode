@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Contains ew_page.module.
+ */
+
+use Drupal\ew_landing_page\Hook\PreprocessPageLandingPage;
+use Drupal\ew_landing_page\Hook\PreprocessPageLandingParagraph;
+use Drupal\ew_core\EaglesWeb\Standard\GeneralHook\ThemeRegistryAlterGeneral;
+use Drupal\ew_landing_page\Constant\ConstantsLandingPage;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\ew_landing_page\Hook\NodeViewAlterLandingPage;
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function ew_landing_page_preprocess_page(&$variables) {
+  PreprocessPageLandingPage::getHookPreprocessPage($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ew_landing_page_preprocess_paragraph(&$variables) {
+  PreprocessPageLandingParagraph::getHookPreprocessParagraph($variables);
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function ew_landing_page_theme_registry_alter(&$theme_registry) {
+  ThemeRegistryAlterGeneral::overrideModuleTemplate($theme_registry, ConstantsLandingPage::class);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ew_landing_page_preprocess_node(&$variables) {
+
+  $variables['view_mode'] = 'node.landing_page';
+}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function ew_landing_page_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  NodeViewAlterLandingPage::getHookNodeViewAlter($build, $entity, $display);
+}
+

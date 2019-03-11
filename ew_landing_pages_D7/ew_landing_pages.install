@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install file for OC Landing pages module.
+ */
+
+use Drupal\ew_landing_pages\Hooks\InstallLandingPages;
+
+/**
+ * Implements hook_install().
+ */
+function ew_landing_pages_install() {
+  InstallLandingPages::getHookInstall();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ew_landing_pages_uninstall() {
+  xautoload()->registerModule(__FILE__);
+  InstallLandingPages::getHookUninstall();
+}
+
+/**
+ * Update : Install field ew_landing_page_full_width.
+ */
+function ew_landing_pages_update_7100() {
+  InstallLandingPages::getHookUpdate7100();
+}

@@ -1,0 +1,4 @@
+services:
+  eagles.landing_page.grid_service:
+    class: Drupal\ew_landing_page\Service\GridService
+    arguments: ['@theme.manager', '@config.factory']
